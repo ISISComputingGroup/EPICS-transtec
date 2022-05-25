@@ -1,18 +1,34 @@
-getIDN {
-    out "*IDN?";
-    in "%\$1[^\r\n]";
-    ExtraInput = Ignore;
+
+
+set_address {
+  out "ADR %d"
+}
+set_power_on {
+  out "N"
+}
+set_power_off {
+  out "F"
+}
+get_current {
+  out "AD 1"
+  in "%d"
+}
+set_current {
+  out "WA %d"
+}
+get_status {
+  out "S0"
+}
+set_reset {
+  out "RS"
+}
+get_set_current {
+  out "RA"
+  in "%d"
+}
+get_actual_voltage {
+  out "AD 2"
+  in "%d"
 }
 
-cmd {
-    out "\$1";
-}
 
-setD {
-    out "\$1 %d";
-}
-getD {
-    out "\$1?";
-    in "%d";
-    ExtraInput = Ignore;
-}
